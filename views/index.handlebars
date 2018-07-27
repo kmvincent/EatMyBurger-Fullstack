@@ -1,0 +1,60 @@
+<div class="container">
+		<div class="row">
+			{{!-- Left Side (Burgers Available) --}}
+				<div class="col-sm-12">
+						<h1>BURGER APP</h1>
+						<h5>How many burgers can you devour?!</h5>
+				</div>
+		</div>
+
+		<div class="row main">
+		<div class="col-md-4" id="burgersAvailable">
+			<h3>Burgers Available</h3>
+			{{#each burgers}}
+          	{{#unless devoured}}
+          	<form action="burger/{{id}}" method="POST">
+           	 <div class="input-group">
+              	<li id="burger" class="form-control">{{id}}. {{burger_name}}</li>
+                	<span class="input-group-btn">
+                  	<button class="btn btn-success devour-button" type="submit">Devour It!</button>
+                	</span>
+            	</div>
+          	</form>
+          	{{/unless}}
+        	{{/each}}
+				</div>
+				<div class="col-md-4">
+						<img src="assets/images/top.png" alt="hamburger bun" width="300px">
+						{{#each burgers}}
+							{{#unless devoured}}
+								<img id="{{id}}"src="assets/images/patty.png" alt="hamburger patty" width="300px">
+							{{/unless}}
+						{{/each}}
+						<img src="assets/images/bottom.png" alt="hamburger bun" width="300px">
+				</div>
+				<div class="col-md-4">
+				<h3>Burgers Devoured</h3>
+					{{#each burgers}}
+          				{{#if this.devoured}}
+            				<div class="input-group">
+              					<li id="burger" class="form-control">{{this.id}}. {{this.burger_name}}</li>
+            				</div>
+          				{{/if}}
+        			{{/each}}
+				</div>
+		</div>
+</div>
+
+{{!-- Input Burger Form --}}
+  <section id="input">
+		<h2>Add a Burger</h2>
+    
+    <form action="burger/new" method="POST" class="create-form">
+    
+		<div class="form-group">
+			<textarea id="newBurger" name="burger_name" rows="3" cols="35"></textarea>
+		</div>
+    
+    <button id="submitBtn" type="submit">Make my Burger!</button>
+    </form>
+	</section>
