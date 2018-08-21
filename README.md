@@ -9,6 +9,7 @@ The user may enter any burger name to add it to the menu. This also adds the new
 
 ## Demo
 The demo of the burger eating application can be found [here](https://salty-ravine-74160.herokuapp.com/).
+![Screenshot](burger.png)
 
 ## Installation
 To install the application follow the following instruction below:
